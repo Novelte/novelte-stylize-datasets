@@ -94,7 +94,7 @@ def main():
     vgg = net.vgg
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+    print(device)
     decoder.eval()
     vgg.eval()
 
@@ -139,6 +139,7 @@ def main():
 
                     content_name = content_path.stem
                     style_name = style_path.stem
+                    # out_filename = content_name + content_path.suffix
                     out_filename = content_name + '-stylized-' + style_name + content_path.suffix
                     output_name = out_dir.joinpath(out_filename)
 
